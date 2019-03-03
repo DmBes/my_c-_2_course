@@ -116,8 +116,9 @@ namespace sharp
 
         public bool first (Cars i) 
         {
-            if (speed > i.speed) { return true; }
-            else return false;
+            if (speed > i.speed) 
+                return true;
+            return false;
             
         }
 
@@ -133,7 +134,8 @@ namespace sharp
             Cars maxa = x;
             if (max < y.speed) { max = y.speed; maxa = y; }
             if (max < y.speed) { max = z.speed; maxa = z; }
-            return maxa; }
+            return maxa;
+        }
 
 
       

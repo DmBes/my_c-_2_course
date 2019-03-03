@@ -3,7 +3,7 @@
 
 namespace laba2
 {
-    class rational
+    class  rational
     {
         private int _numerator, _denominator = 1;
 
@@ -12,8 +12,12 @@ namespace laba2
         }
 
         public int denominator_1 { get => _denominator;
+
             set => _denominator = value;
         }
+
+
+       
 
 
 
@@ -24,6 +28,23 @@ namespace laba2
 
         }
 
+        public int this [int index]
+        {
+            get { if (index == 0)
+                    return numerator_1;
+                return denominator_1;
+            
+            }
+            set
+            {
+                if (index == 0) { numerator_1 = value; }
+                else { denominator_1 = value; }
+
+            }
+
+
+        }
+   
 
         public rational(int num) : this(num, 1) { }
 
@@ -135,10 +156,46 @@ namespace laba2
             bool s = one.numerator_1  * two.denominator_1 < two.numerator_1 * one.numerator_1 ?  true :  false;
             return s;
         }
-        
-        
+
+        public static bool operator true(rational one)
+        {
+            if (one.numerator_1 != 0)
+                return true;
+            return false;
+        }
+
+        public static bool operator false(rational one)
+        {
+            if (one.numerator_1 == 0)
+                return true;
+            return false;
+        }
+
+        //public static implicit operator rational (int enumerates)
+        //{
+        //    return new rational(enumerates, 1);
+          
+        //}
+
+        //public static explicit operator int (rational one)
+        //{
+        //    return Convert.ToInt32(one.numerator_1/ one.denominator_1);
+        //}
+
+        public static implicit operator  int (rational two)
+        {
+            return Convert.ToInt32(two.numerator_1 / two.denominator_1);
+
+        }
+
+        public static explicit operator rational(int t)
+        {
+            return new rational(t,1);
+        }
+
+
     }
 
 
-    
+
 }

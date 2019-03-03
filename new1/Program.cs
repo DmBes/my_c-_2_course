@@ -1,56 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 
 
-namespace new1
+namespace new2
 {
-
-    class Round {
-        private double pi = 3.0f;
-        private double x;
-
-        public void get_x(double number)
-        {
-            x = number;
-        }
-
-        public double summ_round()
-        {
-            return x * pi;
-        }
-    
-    
-   
-
-
-}
-
 
 
     class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("hello world");
-            Console.ReadKey();
-            double t;
-          
-            t = Convert.ToDouble(Console.Read());
-            
-            Round f1 = new Round();
-            f1.get_x(t);
-
-            double summ = f1.summ_round();
-
-            Console.WriteLine(summ);
-            Console.ReadKey();
+            {
+                static void Main(string[] args)
+                {
 
 
+                    Man Ivan = new Man(10);
+                    Ivan.move();
+
+
+
+                    Man Ivan2 = (Man)Ivan.Clone();
+                    Ivan2.move();
+                    
+
+
+                    Man Ivan33 = (Man)Ivan.Clone();
+                    
+
+
+
+
+
+
+
+                    Console.WriteLine(Ivan2.GetHashCode() == Ivan.GetHashCode());
+                    People Serher = new Man(50);
+                    Serher.move();
+
+                    People Dima = new People(30);
+                    Dima.move();
+
+
+                    Imove alex = new Man(40);
+                    alex.move();
+
+                    Imove jura = new People(22);
+                    jura.move();
+
+                    People[] kollekcion = new People[] {Dima, (People)jura};
+                    Array.Sort(kollekcion);
+                    foreach (var q in kollekcion)
+                    {
+                        Console.WriteLine(q.nameIs);
                     }
+
+
+
+
+
+
+                    Console.ReadKey();
+
+
+
+
+                }
+
+
+        
+        
     }
 }
