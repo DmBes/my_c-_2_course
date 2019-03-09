@@ -10,6 +10,7 @@ namespace Laba_5
     {
         public string NamePeople { get; set; }
         public int Salary { get; set; }
+
         public void Print()
         {
             Console.WriteLine($"Я работник {NamePeople} с заработной платой {Salary}");
@@ -32,5 +33,21 @@ namespace Laba_5
 
 
         public object Clone() => new Worker(this.NamePeople, this.Salary);
+
+
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+            if (obj is Int32) return obj ==  (object) this.Salary;
+
+            var temp = obj as Worker;
+            if (temp == null) return false;
+            return (temp.Salary == this.Salary);
+        }
+
+
+
     }
 }

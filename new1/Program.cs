@@ -46,12 +46,12 @@ namespace new2
                     Imove jura = new People(22);
                     jura.move();
 
-                    People[] kollekcion = new People[] {Dima, (People)jura};
-                    Array.Sort(kollekcion);
-                    foreach (var q in kollekcion)
-                    {
-                        Console.WriteLine(q.nameIs);
-                    }
+                    //People[] kollekcion = new People[] {Dima, (People)jura};
+                    //Array.Sort(kollekcion);
+                    //foreach (var q in kollekcion)
+                    //{
+                    //    Console.WriteLine(q.nameIs);
+                    //}
 
 
 

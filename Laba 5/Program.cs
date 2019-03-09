@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Laba_5
 {
@@ -73,7 +74,7 @@ namespace Laba_5
             IPeople fedor = new Worker("Федор", 1000);
             IPeople aleksandr = new Worker("Александр", 555);
             IPeople vitya = new Worker("Витя", 777);
-            
+            TradeCentr euroopt6 = new TradeCentr(1, 100, "ябеда", "ябеда", "Руслан", 50);
             Stack mystack = new Stack();
             mystack.StackAdd((object)euroopt2, (object)euroopt3, (object)euroopt4, (object)euroopt5, (object)belsouz1, (object)belsouz2);
             mystack.StackAdd((object)belsouz3);
@@ -161,13 +162,17 @@ namespace Laba_5
 
             Console.ReadKey();
 
-            // Лабараторная работа №6
- 
+            //Лабараторная работа №6
+
             Console.Clear();
-            ArrayList list1 = new ArrayList(){euroopt2, belsouz1};
+            ArrayList list1 = new ArrayList() { euroopt2,fedor, belsouz1, euroopt6, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4, euroopt5 };
             Lab6 lb6 = new Lab6(list1);
 
             Console.ReadKey();
+
+
+
         }
+
     }
 }

@@ -50,12 +50,6 @@ namespace Laba_5
 
 
             }
-            Worker temp2 = obj as Worker;
-            if (temp2 != null)
-            {
-                return this.NameObject.CompareTo(temp2.NamePeople);
-            }
-            
 
             //return this.NameObject.CompareTo((Kiosk) obj);
             throw new Exception("no class in Kiosk");
@@ -67,17 +61,18 @@ namespace Laba_5
             if (obj == null)
                 return false;
             if (obj is String) return obj == NameObject;
-            //if (obj is Int32) return false;
+            if (obj is Int32) return false;
             var temp = obj as Kiosk;
             if (temp == null) return false;
-
-            return (temp.NameObject == this.NameObject); // .ToLower());
+            
+            return (temp.NameObject == this.NameObject);
+            
 
 
 
 
 
         }
-    }
+        }
 
     }

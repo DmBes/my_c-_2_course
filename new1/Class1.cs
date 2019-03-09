@@ -11,16 +11,16 @@ namespace new2
     {
         public int nameIs;
 
-        public virtual void move()
-        {
-            Console.WriteLine("Я человек {0}  базовый класс", nameIs);
-
-        }
-        //public void move()
+        //public virtual void move()
         //{
         //    Console.WriteLine("Я человек {0}  базовый класс", nameIs);
 
         //}
+        public void move()
+        {
+            Console.WriteLine("Я человек {0}  базовый класс", nameIs);
+        }
+
         public People(int name)
         {
             nameIs = name;

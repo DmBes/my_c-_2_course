@@ -10,15 +10,15 @@ namespace new2
     {
 
 
-        public override void move()
-        {
-            Console.WriteLine("Я мужик {0}. Производный класс", nameIs);
-        }
-
-        //public new void move()
+        //public override void move()
         //{
         //    Console.WriteLine("Я мужик {0}. Производный класс", nameIs);
         //}
+
+        public new void move()
+        {
+            Console.WriteLine("Я мужик {0}. Производный класс", nameIs);
+        }
 
         public Man(int x) : base(x)
         {
