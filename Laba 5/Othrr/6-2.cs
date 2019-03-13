@@ -1,24 +1,26 @@
 ﻿using System;
-using System.Collections;
-
+using System.Collections.Generic;
 
 namespace Laba_5
 {
-    class Lab6
+    class Class6_2 <T> where T : Kiosk, IMagaz
     {
         Stars s = new Stars();
-        protected ArrayList Arr;
+        protected List<T> Arr;
         protected bool Cikle = true;
         private int long_6;
         private int wingth_6;
         private string names_6;
         private string adress_6;
         private int IndexForAdd;
+        T Kioskprimer = (T) new Kiosk(10,100,"Маринкевича","янычар");
 
 
-        public Lab6(ArrayList x)
+
+        public Class6_2 (List<T> x)
         {
             Arr = x;
+            Arr.Insert(2,Kioskprimer);
 
             while (Cikle)
             {
@@ -34,11 +36,11 @@ namespace Laba_5
                             {
                                 if (ele is TradeCentr)
                                 {
-                                    ((TradeCentr)ele).Print();
+                                    (ele as TradeCentr).Print();
                                 }
 
-                                else if (ele is Worker) ((Worker)ele).Print();
-                     
+                                else if (ele is Worker) (ele as Worker).Print();
+
                                 else
                                 {
                                     ((Kiosk)ele).Print();
@@ -52,21 +54,22 @@ namespace Laba_5
                         break;
                     case 2:         //("2 – добавление элемента");
                         addKiosk();
-                        Arr.Add(new Kiosk(long_6,wingth_6,adress_6,names_6));
+                        Arr.Add((T) new Kiosk(long_6, wingth_6, adress_6, names_6));
                         break;
                     case 3:         //  ("3 – добавление элемента по указанному индексу");
                         SetIndex();
                         addKiosk();
-                        Arr.Insert(IndexForAdd, new Kiosk(long_6,wingth_6,adress_6,names_6));
+                        Arr.Insert(IndexForAdd, (T) new Kiosk(long_6, wingth_6, adress_6, names_6));
                         break;
                     case 4:         // ("4 – нахождение элемента с начала коллекции");
                         //string tempstr = Console.ReadLine().ToLower();
-                        Console.WriteLine("Элемент находится под номером {0}", Arr.IndexOf("Ероопт_Ленина"));
+                        
+                        Console.WriteLine("Элемент находится под номером {0}", Arr.IndexOf(Kioskprimer));
                         Console.ReadKey();
                         break;
                     case 5:          // ("5 – нахождение элемента с конца коллекции");
                         //tempstr = Console.ReadLine().ToLower();
-                        Console.WriteLine("Элемент с конца находится под номером {0}", Arr.LastIndexOf("Ероопт_Ленина"));
+                        Console.WriteLine("Элемент с конца находится под номером {0}", Arr.LastIndexOf(Kioskprimer));
                         Console.ReadKey();
                         break;
                     case 6:       // ("6 – удаление элемента по индексу");
@@ -75,7 +78,7 @@ namespace Laba_5
                         break;
                     case 7:         //("7 – удаление элемента по значению");
                         //string tempstr = Console.ReadLine().ToLower();
-                        Arr.Remove("Ероопт_Ленина");
+                        Arr.Remove(Kioskprimer);
                         break;
                     case 8:          //("8 – реверс коллекции");
                         Arr.Reverse();
@@ -99,35 +102,36 @@ namespace Laba_5
                         {
                             if (x1 is TradeCentr)
                             {
-                                ((TradeCentr)x1).Print_salary();
-                                
+                                // TODO явное приведение
+                                (x1 as TradeCentr).Print_salary();
+
                             }
                             if (x1 is Kiosk) ((Kiosk)x1).Print();
-                            if (x1 is Worker) ((Worker) x1).Print();
+                            if (x1 is Worker) (x1 as Worker).Print();
                             s.St();
                         }
 
                         Console.ReadKey();
-               
+
                         break;
                     default:
                         Cikle = false;
                         break;
                 }
 
- 
+
 
 
 
             }
-            
-           
+
+
 
         }
 
-        public Lab6() : this(new ArrayList())
+        public Class6_2() : this(new List<T>())
         {
-            
+
         }
 
         public void addKiosk()
@@ -164,12 +168,10 @@ namespace Laba_5
                 IndexForAdd = Convert.ToInt32(Console.ReadLine());
                 if (IndexForAdd < 0) Console.WriteLine(" ВВедите число от единицы до {0}", Arr.Count);
 
-            } while (IndexForAdd < 0 && IndexForAdd < Arr.Count);
+            } while (IndexForAdd <= 0 && IndexForAdd < Arr.Count);
         }
 
 
 
     }
-
-
 }

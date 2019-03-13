@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{25093A2A-A920-4CCC-B1BA-EEF938502C0B}</ProjectGuid>
+    <ProjectGuid>{CC874516-74A9-4286-9F9A-AED1DA5EB1AA}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Laba_5</RootNamespace>
-    <AssemblyName>Laba 5</AssemblyName>
+    <RootNamespace>laba7</RootNamespace>
+    <AssemblyName>laba7</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -43,24 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Comparetwo.cs" />
-    <Compile Include="KioslCompare.cs" />
-    <Compile Include="Menu.cs" />
-    <Compile Include="Interface\IMagaz.cs" />
-    <Compile Include="ClassO\Kiosk.cs" />
-    <Compile Include="Interface\Ipeople.cs" />
-    <Compile Include="Othrr\6-2.cs" />
-    <Compile Include="Othrr\Lab6.cs" />
+    <Compile Include="Other\Kiosk.cs" />
+    <Compile Include="Other\Trade_center.cs" />
+    <Compile Include="Realaze\chaper2.cs" />
+    <Compile Include="Realaze\chapter1.cs" />
+    <Compile Include="Realaze\chapter3.cs" />
+    <Compile Include="Other\menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Othrr\Stack.cs" />
-    <Compile Include="Othrr\Stars.cs" />
-    <Compile Include="ClassO\Trade_centr.cs" />
-    <Compile Include="ClassO\Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

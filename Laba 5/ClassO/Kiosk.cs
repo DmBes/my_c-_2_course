@@ -41,34 +41,34 @@ namespace Laba_5
         }
 
 
-        public int CompareTo(object obj)
+        public int CompareTo(object obj)   // Сортировка  
         {
-            Kiosk temp = obj as Kiosk;
+            Kiosk temp = obj as Kiosk;  // Если это киоск
             if (temp != null)
             {
                 return this.NameObject.CompareTo(temp.NameObject);
 
 
             }
-            Worker temp2 = obj as Worker;
+            Worker temp2 = obj as Worker; //Если это рабочий
             if (temp2 != null)
             {
                 return this.NameObject.CompareTo(temp2.NamePeople);
             }
             
 
-            //return this.NameObject.CompareTo((Kiosk) obj);
+          
             throw new Exception("no class in Kiosk");
         }
 
 
-        public override bool Equals(object obj)
+        public override bool Equals(object obj)   //Сравнение
         {
-            if (obj == null)
+            if (obj == null)  // Если пришел на вход NUll
                 return false;
-            if (obj is String) return obj == NameObject;
+            if (obj is String) return obj == NameObject; // Если на вход пришла строка
             //if (obj is Int32) return false;
-            var temp = obj as Kiosk;
+            var temp = obj as Kiosk;  // Если на вход пришел киоск
             if (temp == null) return false;
 
             return (temp.NameObject == this.NameObject); // .ToLower());

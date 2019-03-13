@@ -69,15 +69,15 @@ namespace Laba_5
 
         #region Кастинг  + обвертывание  (кастинг находится на этапе выше)
 
-        //public void PrintPeople()
-        //{
-        //    ((Ipeople)this).Print();
-        //}
+        public void PrintPeople()
+        {
+            ((IPeople)this).Print();
+        }
 
-        //public void PrintMagaz()
-        //{
-        //    ((Imagaz)this).Print();
-        //}
+        public void PrintMagaz()
+        {
+            ((IMagaz)this).Print();
+        }
 
 
         #endregion

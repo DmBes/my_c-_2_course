@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace Laba_5
 {
@@ -13,12 +14,12 @@ namespace Laba_5
 
             #region kiosk
 
-            
 
-     
+
+
             //Create Kiosl
 
-            Kiosk belsouz = new Kiosk(4,5,"Skorini","Belsouz");
+            Kiosk belsouz = new Kiosk(4, 5, "Skorini", "Belsouz");
 
 
             //Print Kiosk
@@ -31,27 +32,31 @@ namespace Laba_5
 
             #region create Worker , Clone Worker and Trade_center
 
-            
+
             Worker ivan = new Worker("Иван", 100);
             ivan.Print();
-            
-            Worker ia = (Worker)ivan.Clone();   //Create Clone
+
+            Worker ia = (Worker) ivan.Clone(); //Create Clone
 
             s.St();
 
-            TradeCentr euroopt = new TradeCentr(100,200,"Сердича","Евроопт", "Иван",500);
+            TradeCentr euroopt = new TradeCentr(100, 200, "Сердича", "Евроопт", "Иван", 500);
             euroopt.Print();
 
             s.St();
+
             #endregion
 
             #region Склеивание и кастинг Euroopt
 
-            //((Imagaz)Euroopt).Print();
-            //((Ipeople)Euroopt).Print();               //Склеивание
+            s.St();
 
-            //Euroopt.PrintMagaz();
-            //Euroopt.PrintPeople();
+            //((IMagaz)euroopt).Print();
+            //((IPeople)euroopt).Print();               //Склеивание
+            //s.St();
+            //euroopt.PrintMagaz();
+            //euroopt.PrintPeople();
+            //Console.ReadKey();
 
             #endregion
 
@@ -76,17 +81,18 @@ namespace Laba_5
             IPeople vitya = new Worker("Витя", 777);
             TradeCentr euroopt6 = new TradeCentr(1, 100, "ябеда", "ябеда", "Руслан", 50);
             Stack mystack = new Stack();
-            mystack.StackAdd((object)euroopt2, (object)euroopt3, (object)euroopt4, (object)euroopt5, (object)belsouz1, (object)belsouz2);
-            mystack.StackAdd((object)belsouz3);
-            mystack.StackAdd((object)belsouz4);
+            mystack.StackAdd((object) euroopt2, (object) euroopt3, (object) euroopt4, (object) euroopt5,
+                (object) belsouz1, (object) belsouz2);
+            mystack.StackAdd((object) belsouz3);
+            mystack.StackAdd((object) belsouz4);
             s.Pr();
             short ssss = mystack.GetNum;
 
-            
 
 
-            IMagaz[] myArrayMagaz = new IMagaz[]  // Создание массива типа Imagaz
-                {euroopt2, euroopt5, belsouz2,euroopt3, belsouz3, euroopt4, belsouz4};
+
+            IMagaz[] myArrayMagaz = new IMagaz[] // Создание массива типа Imagaz
+                {euroopt2, euroopt5, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4};
 
 
             s.Pr();
@@ -102,77 +108,101 @@ namespace Laba_5
                 }
                 else
                 {
-                    ((Kiosk)tmp).Print();
+                    ((Kiosk) tmp).Print();
                 }
+
                 s.St();
-            
-
-
-
-            #endregion
 
 
 
 
-            //for (int i = 0; i < ssss; i++)
-            //{
-            //    object temp = Mystack.StackDelete();
-            //    if (temp is Trade_centr)
-            //    {
-            //        ((Trade_centr)temp).Print();
-            //        s.St();
-            //    }
-            //    else
-            //    {
-            //        ((Kiosk)temp).Print();
-            //        s.St();
-            //    }
+                #endregion
+
+
+
+
+                //for (int i = 0; i < ssss; i++)
+                //{
+                //    object temp = Stack.StackDelete();
+                //    if (temp is Trade_centr)
+                //    {
+                //        ((Trade_centr)temp).Print();
+                //        s.St();
+                //    }
+                //    else
+                //    {
+                //        ((Kiosk)temp).Print();
+                //        s.St();
+                //    }
+
+                //}
+
+
+                #region Sorted Array (CompareTo and Comparible)
+
+
+
+
+                //System.Console.Clear();
+                //Console.WriteLine("сортировка");
+                //Array.Sort(myArrayMagaz); // Сортировка Массива Comparible
+
+                //foreach (var x in myArrayMagaz)
+                //{
+                //    x.Print();
+                //    Console.WriteLine($"{x.Longest}");
+
+                //}
+
+                //Console.ReadKey();
+                //s.St();
+
+                //Array.Sort(myArrayMagaz, new KioslCompare()); // CompareTo
+                //foreach (var x in myArrayMagaz)
+                //{
+                //    x.Print();
+                //    Console.WriteLine($"{x.Longest}");
+
+                //}
+                //Console.ReadKey();
+                //Array.Sort(myArrayMagaz, new CompareTwo()); // CompareTo
+                //foreach (var x in myArrayMagaz)
+                //{
+                //    x.Print();
+                //    Console.WriteLine($"{x.Longest}");
+
+                //}
+
+
+
+
+
+
+                #endregion
+
+
+                Console.ReadKey();
+
+                // Лабараторная работа №6 - 1
+
+                //Console.Clear();
+                //ArrayList list1 = new ArrayList() { euroopt2, fedor, belsouz1, euroopt6, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4, euroopt5 };
+                //Lab6 lb6 = new Lab6(list1);
+
+                //Console.ReadKey();
+
+
+
+                // Лабараторная работа 6-2
+
+                Console.Clear();
+                List<Kiosk> laba6_2 = new List<Kiosk>() { euroopt2, belsouz1, euroopt6, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4, euroopt5 };
+                Class6_2<Kiosk> p2p = new Class6_2<Kiosk>(laba6_2);
+                Console.ReadKey();
+
 
             }
-
-
-            #region Sorted Array (CompareTo and Comparible)
-
-
-
-
-            System.Console.Clear();
-            Array.Sort(myArrayMagaz);  // Сортировка Массива Comparible
-
-            foreach (var x in myArrayMagaz)
-            {
-                x.Print();
-                Console.WriteLine($"{x.Longest}");
-                
-            }
-
-            s.St();
-
-            Array.Sort(myArrayMagaz,new KioslCompare());   // CompareTo
-            foreach (var x in myArrayMagaz)
-            {
-                x.Print();
-                Console.WriteLine($"{x.Longest}");
-
-            }
-
-
-            #endregion
-
-
-            Console.ReadKey();
-
-            //Лабараторная работа №6
-
-            Console.Clear();
-            ArrayList list1 = new ArrayList() { euroopt2,fedor, belsouz1, euroopt6, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4, euroopt5 };
-            Lab6 lb6 = new Lab6(list1);
-
-            Console.ReadKey();
-
-
 
         }
-
     }
 }
