@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace laba7
@@ -71,11 +72,19 @@ namespace laba7
                         Console.ReadKey();
                         
                         break;
+                    //Todo переделать нужно вставить после символов
                     case 3: //после указанного символа каждый раз вставить *
                         Console.Write("Введите номер после которого будет вставлено \"*\" : ");
-                        int c = Convert.ToInt32(Console.ReadLine());
+                        string c = Console.ReadLine();
                         string temple = "*";
-                        _str.Insert(c, temple);
+                        _str.Replace(c, c + temple);
+                        Regex sa = new Regex("pa");
+                        string s = "papapa";
+
+                        if (sa.IsMatch(s))
+                        {
+                            Console.WriteLine("fdsfs");
+                        }
                         
 
                         break; 

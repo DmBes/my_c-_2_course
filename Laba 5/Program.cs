@@ -20,7 +20,7 @@ namespace Laba_5
             //Create Kiosl
 
             Kiosk belsouz = new Kiosk(4, 5, "Skorini", "Belsouz");
-
+            
 
             //Print Kiosk
 
@@ -197,8 +197,17 @@ namespace Laba_5
 
                 Console.Clear();
                 List<Kiosk> laba6_2 = new List<Kiosk>() { euroopt2, belsouz1, euroopt6, belsouz2, euroopt3, belsouz3, euroopt4, belsouz4, euroopt5 };
+                
                 Class6_2<Kiosk> p2p = new Class6_2<Kiosk>(laba6_2);
-                Console.ReadKey();
+
+
+
+                //Worker Dima = new Worker("P",100);
+                //Worker Sasha = new Worker("Sashaa",1002);
+                //Worker Sergo = new Worker("sergo",444);
+                //List<Worker> Da = new List<Worker>(){Dima, ivan,Sasha, Sergo};
+                //Class6_2<IPeople> dfaaaaa = new List<IPeople>();
+                //Console.ReadKey();
 
 
             }

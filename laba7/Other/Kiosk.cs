@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace laba7.Other
 {
+    [Serializable]
     class Kiosk
     {
-        public string NameObject { get; set; }
-        public string AdressObject { get; set; }
 
-
+       
+        //[NonSerialized]
+        public string NameObject;
+       
+        public string AdressObject;  
 
         public Kiosk(string nameObj, string adres)
         {
@@ -28,6 +32,7 @@ namespace laba7.Other
         public void Print()
         {
             Console.WriteLine($"Я киоск {NameObject} по адресу {AdressObject}");
+            Console.ReadKey();
         }
 
     }

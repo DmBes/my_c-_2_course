@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
-
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -36,11 +37,14 @@ namespace laba7
         {
             string adress = @"D:\papka1"; // Установка изначального адреса по умолчанию
             DirectoryInfo dirInfo = new DirectoryInfo(adress); //чтение всех каталогов по умолчанию
+            DirectoryInfo das = new DirectoryInfo(adress);
+  
            
              //FileInfo fileall = new FileInfo(adress);  //чтения всех файлов по умолчанию
             UserChoice = 1;
             
             DirectoryInfo[] x = new DirectoryInfo[] { }; //инициализация массива объктов DirectoryInfo
+            x = dirInfo.GetDirectories();
             FileInfo[] AllFiles = new FileInfo[] { };//чтения всех файлов по умолчанию
             FileInfo[] vse = dirInfo.GetFiles("*.*", SearchOption.AllDirectories);
 
@@ -83,7 +87,7 @@ namespace laba7
                                 chethik++;
                             }
 
-                            Console.WriteLine(x[1]);
+                            
                             
                             Console.ReadKey();
                         }
@@ -141,7 +145,7 @@ namespace laba7
 
                         break;
                     case 6:  //удаляет каталог по номеру, если он пустой
-                        if (AllFiles.Length < 0) //Проверка на пустоту
+                        if (x.Length < 0) //Проверка на пустоту
                         {
                             Console.WriteLine("Нет значения для удаления");
                             Console.ReadKey();
@@ -149,7 +153,7 @@ namespace laba7
 
                         } //Проверка на пустоту
 
-                        Console.Write("Введите значение для удаления от 0 до {0}", AllFiles.Length);
+                        Console.Write("Введите значение для удаления от 0 до {0}: ", x.Length);
                         chethik1 = Convert.ToInt32(Console.ReadLine());
 
                         x[chethik1].Delete();
@@ -206,8 +210,18 @@ namespace laba7
                                  using (StreamReader rider = obj.OpenText())  //Открытие метода для чтения
                                  {
                                      string findTXT = rider.ReadToEnd(); //чтение всего файла
-                        
-                                     if (findTXT.IndexOf(FindT) >= 0) // если находит индекс первого вхождения 
+
+                                //Regex d1 = new Regex(FindT);
+                                //Console.WriteLine(d1);
+
+
+
+                                //if (d1.IsMatch(FindT))
+                                //{
+                                //    Console.WriteLine("dsfs");
+                                //}
+
+                                if (findTXT.IndexOf(FindT) >= 0) // если находит индекс первого вхождения 
                                      {
                                          Console.WriteLine("Файл под именем {0} содержит значение {1}", obj.Name, findTXT);
                                         
@@ -220,9 +234,12 @@ namespace laba7
                         break;
 
 
+
+                    
                 }
 
-
+              
+                
             }
 
         }
@@ -231,11 +248,14 @@ namespace laba7
 
 
 
-        
- 
+
+        //public FileInfo[] update_file(string adr)
+        //{
+
+        //}
 
     }
-
+    
 
 
 

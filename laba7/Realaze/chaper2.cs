@@ -2,8 +2,10 @@
 using System.Dynamic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using laba7.Other;
 
 namespace laba7
@@ -24,16 +26,18 @@ namespace laba7
 
      *
      */
-    [Serializable]
+    
     class chapter2
+
+
 
     {
         
         public Trade_center tradeCenter;
-        [NonSerialized]
+       
         protected string commment = "Не выгружать";
 
-        public chapter2(): base ()  //ToDo почему нельза положить класс ???
+        public chapter2(): this (new Trade_center("dsa","fd", 700))  //ToDo почему нельза положить класс ???
         {
 
         }
@@ -43,6 +47,10 @@ namespace laba7
             this.tradeCenter = tradeCenter;
             //Reflection();
             MySereseble("tut.txt");
+
+            var tr = MyDESereseble("tut.txt");
+            Console.WriteLine(tr.NameObject == tradeCenter.NameObject);
+
 
 
 
@@ -76,6 +84,45 @@ namespace laba7
             t.Close();
         }
 
+        public Trade_center MyDESereseble(string my)
+        {
+            
+            Stream t = new FileStream(my, FileMode.Open);
+            BinaryFormatter forma = new BinaryFormatter();
+            Trade_center s = forma.Deserialize(t) as Trade_center;
+            t.Close();
+            return s;
+        }
 
+        public static void Load(Trade_center obj, string name_file)
+        {
+            var s = obj.GetType();
+
+            using (StreamWriter twriter = new StreamWriter(name_file,false,Encoding.UTF8))
+            {
+                twriter.WriteLine(s.Assembly);
+                twriter.WriteLine(s.AssemblyQualifiedName);
+                twriter.WriteLine(s.Attributes);
+                twriter.WriteLine(s.BaseType);
+                twriter.WriteLine(s.ContainsGenericParameters);
+                twriter.WriteLine(s.ContainsGenericParameters);
+              
+                twriter.WriteLine(s.DeclaringType);
+                twriter.WriteLine(s.FullName);
+                twriter.WriteLine(s.GUID);
+
+
+                twriter.WriteLine(s.Assembly);
+              
+                twriter.WriteLine(s.HasElementType);
+                twriter.WriteLine(s.MemberType);
+                twriter.WriteLine(s.IsEnum);
+            }
+        }
+
+
+       
+
+        }
     }
-}
+

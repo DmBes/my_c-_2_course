@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Laba_5
 {
-    class Class6_2 <T> where T : Kiosk, IMagaz
+    class Class6_2 <T> where T : Kiosk, new(int , int, string, string)
     {
         Stars s = new Stars();
         protected List<T> Arr;
@@ -13,7 +13,11 @@ namespace Laba_5
         private string names_6;
         private string adress_6;
         private int IndexForAdd;
+        private Kiosk K = new Kiosk();
+
+        //TOdo Почему возможно только такое создание объекта с кастом Т
         T Kioskprimer = (T) new Kiosk(10,100,"Маринкевича","янычар");
+        private T ars = (T)new T ( (10, 200, "dsa", "dsa");
 
 
 
@@ -36,6 +40,7 @@ namespace Laba_5
                             {
                                 if (ele is TradeCentr)
                                 {
+                                    //((TradeCentr)ele).Print();
                                     (ele as TradeCentr).Print();
                                 }
 

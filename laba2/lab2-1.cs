@@ -18,6 +18,7 @@ namespace laba2
             int c;
             rational obj1 = new rational(50, 2);
             rational obj2 = new rational(10,2);
+            int x = obj2[1];
             //var obj3 = new rational(20, 10);
             //obj3.Norm();
            // Console.WriteLine(obj3);

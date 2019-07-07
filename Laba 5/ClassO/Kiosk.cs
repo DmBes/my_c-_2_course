@@ -64,6 +64,7 @@ namespace Laba_5
 
         public override bool Equals(object obj)   //Сравнение
         {
+
             if (obj == null)  // Если пришел на вход NUll
                 return false;
             if (obj is String) return obj == NameObject; // Если на вход пришла строка
